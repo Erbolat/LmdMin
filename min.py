@@ -1,6 +1,13 @@
 import logging
 import schedule
 import time
+mport os
+import subprocess
+
+try:
+    import schedule
+except ModuleNotFoundError:
+    subprocess.check_call(["pip", "install", "schedule"])
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
