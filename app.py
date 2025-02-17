@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -30,37 +30,7 @@ def index():
     element_id = "lmdValue"
     result = get_data_by_id_with_selenium(driver, url, element_id)
     driver.quit()
-
-    # HTML-шаблон с встроенным результатом
-    html_content = f'''
-    <!DOCTYPE html>
-    <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Результат</title>
-        <style>
-            body {{
-                font-family: Arial, sans-serif;
-                margin: 50px;
-                background-color: #f4f4f4;
-            }}
-            h1 {{
-                color: #333;
-            }}
-            p {{
-                font-size: 1.2em;
-                color: #555;
-            }}
-        </style>
-    </head>
-    <body>
-        <h1>Извлеченные данные:</h1>
-        <p>{result}</p>
-    </body>
-    </html>
-    '''
-    return render_template_string(html_content)
+    return render_template('index.html', result=result)
 
 if __name__ == "__main__":
     app.run(debug=True)
