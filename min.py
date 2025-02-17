@@ -9,6 +9,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from datetime import datetime, timedelta
+import os
+import subprocess
+
+try:
+    import schedule
+except ModuleNotFoundError:
+    subprocess.check_call(["pip", "install", "schedule"])
+    import schedule
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
