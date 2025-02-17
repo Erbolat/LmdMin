@@ -82,15 +82,15 @@ if __name__ == "__main__":
     # driver = webdriver.Chrome(service=service, options=options)
 
     # Планируем выполнение задачи каждые 2 минуты
-    schedule.every(2).minutes.do(job, driver)
+    # schedule.every(2).minutes.do(job, driver)
 
     # Запускаем бесконечный цикл для выполнения задач
-    logging.info("Запуск планировщика задач...")
-    try:
-        while True:
-            schedule.run_pending()  # Проверка на выполнение запланированных задач
-            time.sleep(1)  # Пауза в 1 секунду между проверками
-    finally:
-        # Закрываем браузер при завершении работы скрипта
-        driver.quit()
-        logging.info("Браузер закрыт.")
+    # logging.info("Запуск планировщика задач...")
+    # try:
+    #     while True:
+    #         schedule.run_pending()  # Проверка на выполнение запланированных задач
+    #         time.sleep(1)  # Пауза в 1 секунду между проверками
+    # finally:
+    #     # Закрываем браузер при завершении работы скрипта
+    #     driver.quit()
+    #     logging.info("Браузер закрыт.")
