@@ -25,7 +25,7 @@ def index():
     options = Options()
     options.headless = True
     # service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome()
     url = "https://lmd.up.railway.app/"
     element_id = "lmdValue"
     result = get_data_by_id_with_selenium(driver, url, element_id)
