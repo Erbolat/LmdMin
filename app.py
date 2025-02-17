@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 def get_data_by_id_with_selenium(driver, url, element_id):
     driver.get(url)
+    logging.info("Инициализация браувывывывзера...")
     try:
         element = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.ID, element_id))
@@ -22,6 +23,7 @@ def get_data_by_id_with_selenium(driver, url, element_id):
 
 @app.route('/')
 def index():
+    logging.info("Инициализация браузера...")
     options = Options()
     options.headless = True
     # service = Service(ChromeDriverManager().install())
