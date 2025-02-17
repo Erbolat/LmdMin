@@ -39,15 +39,7 @@ def get_data_by_id_with_selenium(driver, url, element_id):
         logging.error(f"Ошибка: {e}")
         return f"Ошибка: {e}"
 
-def write_to_file(result):
-    # Получаем текущее время и вычитаем 1 час для получения предыдущего
-    current_time = datetime.now() - timedelta(hours=1)
-    formatted_time = current_time.strftime("%d.%m.%Y %H:%M")
-    
-    # Запись данных в файл
-    with open(r"C:\Users\ADMIN\Desktop\result.txt", "a") as file:
-        file.write(f"{formatted_time}, {result}\n")
-        logging.info(f"Данные записаны в файл: {formatted_time}, {result}")
+
 
 def job(driver):
     url = "https://lmd.up.railway.app/"
@@ -57,7 +49,7 @@ def job(driver):
     result = get_data_by_id_with_selenium(driver, url, element_id)
     
     # Записываем данные в файл
-    write_to_file(result)
+     logging.info(f"Извлеченные данные: {result}")
 
 if __name__ == "__main__":
     # Настраиваем параметры браузера
