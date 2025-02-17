@@ -1,7 +1,7 @@
 services:
   - type: web
-    name: min
+    name: your-app-name
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn min:min"
+    startCommand: "gunicorn app:app"
