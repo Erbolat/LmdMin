@@ -49,7 +49,7 @@ def job(driver):
     result = get_data_by_id_with_selenium(driver, url, element_id)
     
     # Записываем данные в файл
-     logging.info(f"Извлеченные данные: {result}")
+    logging.info(f"Извлеченные данные: {result}")  # Исправлен отступ
 
 if __name__ == "__main__":
     # Настраиваем параметры браузера
@@ -66,7 +66,6 @@ if __name__ == "__main__":
     # Инициализация ChromeDriver с использованием настроенных параметров
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
-
     # Планируем выполнение задачи каждые 2 минуты
     schedule.every(2).minutes.do(job, driver)
 
