@@ -78,8 +78,8 @@ if __name__ == "__main__":
     options.add_argument("--disable-default-apps")  # Отключает использование стандартных приложений
 
     # Инициализация ChromeDriver с использованием настроенных параметров
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
+    # service = Service(ChromeDriverManager().install())
+    # driver = webdriver.Chrome(service=service, options=options)
 
     # Планируем выполнение задачи каждые 2 минуты
     schedule.every(2).minutes.do(job, driver)
